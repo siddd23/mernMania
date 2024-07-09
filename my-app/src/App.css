@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --red: #d01c28;
+    --grey: #2e2e2e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa; /* Optional: to give a light background */
+  }
+  
+  .cl-sign-in {
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+  }
+  
+.navbar {
+    background-color: #22b4ed;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-right: auto;
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+}
+
+.userName {
+    color: #fff;
+    margin-right: 1rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.sign-in-button, .clerk-user-button {
+    background-color: white;
+    color: #007bff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .sign-in-button:hover, .clerk-user-button:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .sign-in-button:focus, .clerk-user-button:focus {
+    outline: none;
+  }
+
+.task-list-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.task-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-task-button {
+    display: flex;
+    align-items: center;
+    background-color: #22b4ed;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-task-button:hover {
+    background-color: #04506e;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-icon {
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+.react-modal-content {
+    max-height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.react-modal-content h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.react-modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.react-modal-content label {
+  
+    font-size: 14px;
+}
+
+.react-modal-content input,
+.react-modal-content textarea,
+.react-modal-content select {
+    width: 100%;
+    padding: 10px;
+  
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.react-modal-content button {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.react-modal-content button[type='submit'] {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.react-modal-content button[type='button'] {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.react-modal-content button:hover {
+    opacity: 0.9;
+}
+.task-time{
+    text-align: end;
+    color: #6c757d;
+}
+
+.task-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.task-card p {
+    margin: 5px 0;
+    font-size: 1.5rem;
+}
+
+.task-card p:first-child {
+    font-weight: bold;
+}
+
+.task-card button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.task-card button:hover {
+    background-color: #c82333;
+}
+
+
+.message-actions {
+    
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button,
+.delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--grey);
+}
+
+  .edit-button{
+    color: #62acfc;
+  }
+  .delete-button{
+    color: rgb(249, 106, 106);
+    
+  }
+
+  .edit-button:hover,
+  .delete-button:hover {
+    color: #555;
+  }
+  .notification-icon {
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .notification-icon .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+  }
+  .notification-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+  }
+  
+  .notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .notification-header h3 {
+    margin: 0;
+  }
+  
+  .close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .close-button:hover {
+    color: red;
+  }
+  
+  .notification-list-modal {
+  
+    padding: 0;
+    margin: 0;
+  }
+  
+  .notification-list-modal li {
+    margin-bottom: 10px;
+    
+    padding-bottom: 5px;
+  }
+  .collaboration-requests {
+    margin-top: 10px;
+  }
+  
+  .collaboration-request {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .collaboration-request p {
+    margin: 0;
+  }
+  
+  .collaboration-request button {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .collaboration-request button:hover {
+    background-color: #0056b3;
+  }
+  
+  .collaboration-request span {
+    font-weight: bold;
+  }
+
+@media (max-width: 768px) {
+    .task-list-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .task-list-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .add-task-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .search-container input {
+        width: 100%;
+    }
+
+    .react-modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .userName {
+        font-size: 1rem;
+    }
+
+    .task-card {
+        padding: 15px;
+    }
+
+    .task-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .task-card p {
+        font-size: 0.9rem;
+    }
+
+    .react-modal-content {
+        width: 100%;
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .react-modal-content h2 {
+        font-size: 20px;
+    }
+}
