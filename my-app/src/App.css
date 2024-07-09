@@ -14,22 +14,7 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f9fa; /* Optional: to give a light background */
-  }
-  
-  .cl-sign-in {
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-    background-color: white;
-  }
+
   
 .navbar {
     background-color: #22b4ed;
@@ -40,6 +25,7 @@ body {
 .container {
     display: flex;
     justify-content: space-between;
+   
     flex-wrap: wrap;
 }
 
@@ -71,15 +57,56 @@ body {
     border-radius: 4px;
     font-size: 1em;
     cursor: pointer;
-  }
-  
-  .sign-in-button:hover, .clerk-user-button:hover {
+}
+
+.sign-in-button:hover, .clerk-user-button:hover {
     background-color: #e6e6e6;
-  }
-  
-  .sign-in-button:focus, .clerk-user-button:focus {
+}
+
+.sign-in-button:focus, .clerk-user-button:focus {
     outline: none;
-  }
+}
+
+@media (max-width: 768px) {
+    .container {
+        justify-content: space-between;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .userName {
+        font-size: 1.2rem;
+    }
+
+    .sign-in-button, .clerk-user-button {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
+
+    .userName {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+    }
+
+    .sign-in-button, .clerk-user-button {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+}
 
 .task-list-container {
     width: 80%;
@@ -128,68 +155,81 @@ body {
 }
 
 .react-modal-content {
-    max-height: 90%;
     position: absolute;
     top: 50%;
     left: 50%;
-    right: auto;
-    bottom: auto;
-    margin-right: -50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 90%; /* Adjust the width as per your design */
+    max-width: 400px; /* Maximum width for larger screens */
     padding: 15px;
     border-radius: 8px;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.react-modal-content h2 {
+  }
+  
+  .react-modal-content h2 {
     margin-bottom: 10px;
     font-size: 24px;
     text-align: center;
-}
-
-.react-modal-content form {
+  }
+  
+  .react-modal-content form {
     display: flex;
     flex-direction: column;
-}
-
-.react-modal-content label {
+  }
   
+  .react-modal-content label {
     font-size: 14px;
-}
-
-.react-modal-content input,
-.react-modal-content textarea,
-.react-modal-content select {
+    margin-bottom: 5px; /* Add spacing between labels */
+  }
+  
+  .react-modal-content input,
+  .react-modal-content textarea,
+  .react-modal-content select {
     width: 100%;
     padding: 10px;
-  
+    margin-bottom: 10px; /* Add spacing between inputs */
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-.react-modal-content button {
+  }
+  
+  .react-modal-content .button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .react-modal-content button {
+    flex: 1; /* Take up full width */
     padding: 10px;
     margin-top: 10px;
+    margin-right: 10px; /* Add spacing between buttons */
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.react-modal-content button[type='submit'] {
+  }
+  
+  .react-modal-content button[type='submit'] {
     background-color: #007bff;
     color: #fff;
-}
-
-.react-modal-content button[type='button'] {
+  }
+  
+  .react-modal-content button[type='button'] {
     background-color: #6c757d;
     color: #fff;
-}
-
-.react-modal-content button:hover {
+  }
+  
+  .react-modal-content button:hover {
     opacity: 0.9;
-}
+  }
+  
+  @media (max-width: 768px) {
+    .react-modal-content {
+      width: 90%; /* Adjust width for smaller screens */
+      max-width: 90%; /* Maximum width for smaller screens */
+    }
+  }
+  
 .task-time{
     text-align: end;
     color: #6c757d;
@@ -365,18 +405,15 @@ body {
         padding: 10px;
     }
 
-    .task-list-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+   
 
     .add-task-button {
-        width: 100%;
+        width: 25%;
         margin-bottom: 10px;
     }
 
     .search-container {
-        width: 100%;
+        width: 40%;
     }
 
     .search-container input {

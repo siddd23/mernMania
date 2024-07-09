@@ -1,48 +1,102 @@
 .container {
-    display: flex;
-  }
-  
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  cursor: pointer;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  color: #333;
+}
+
+.sidebar ul li:hover {
+  background-color: #eaeaea;
+}
+
+.totalTask {
+  cursor: pointer;
+  padding: 10px 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.totalTask:hover {
+  background-color: #eaeaea;
+}
+
+.priorityTask {
+  margin-top: 20px;
+  cursor: pointer;
+  padding: 10px 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.priorityTask:hover {
+  background-color: #eaeaea;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
   .sidebar {
-    width: 200px;
-    background-color: #f4f4f4;
-    padding: 20px;
-    height: 100vh;
+    height: 450px;
+    position: fixed;
+    left: -200px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    top: 72px;
   }
-  
-  .sidebar h2 {
-    margin-bottom: 20px;
+
+  .sidebar.open {
+    left: 0;
   }
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
+
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top:22px;
+    left: 10px;
+    font-size: 24px;
     cursor: pointer;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-    color: #333;
+    z-index: 1100;
   }
-  
-  .sidebar ul li:hover {
-    background-color: #eaeaea;
+
+  .sidebar-overlay {
+   
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
   }
-  .totalTask{
-    cursor: pointer;
-    padding: 10px 0;
-    color: #333;
-    font-weight: bold;
+
+  .sidebar-overlay.open {
+    display: block;
   }
-  .totalTask:hover{
-    background-color: #eaeaea;
+}
+
+/* Hide toggle button on desktop screens */
+@media (min-width: 769px) {
+  .sidebar-toggle {
+    display: none;
   }
-  .priorityTask{
-    margin-top: 20px;
-    cursor: pointer;
-    padding: 10px 0;
-    font-weight: bold;
-    color: #333;
-  }
-  .priorityTask:hover{
-    background-color: #eaeaea;
-  }
+}

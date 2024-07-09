@@ -425,75 +425,73 @@ const LandingPage = () => {
             </p>
           </div>
         ))}
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Create Task Modal"
-          className={"react-modal-content"}
-        >
-          <h2>{taskId ? "Edit Task" : "Create Task"}</h2>
-          <form onSubmit={handleFormSubmit}>
-            <label>
-              Task Name:
-              <input
-                type="text"
-                value={taskName}
-                onChange={(e) => setTaskName(e.target.value)}
-                required
-              />
-            </label>
-            <br />
-            <label>
-              Description:
-              <textarea
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
-              />
-            </label>
-            <br />
-            <label>
-              Due Date:
-              <input
-                type="date"
-                value={dueDate}
-                onChange={(e) => setDueDate(e.target.value)}
-                required
-              />
-            </label>
-            <br />
-            <label>
-              Priority:
-              <select
-                value={priority}
-                onChange={(e) => setPriority(e.target.value)}
-                required
+       <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel="Create Task Modal"
+                className={"react-modal-content"}
               >
-                <option value="low">Low</option>
-                <option value="high">High</option>
-              </select>
-            </label>
-            <br />
-            <label>
-              Status:
-              <select
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-                required
-              >
-                <option value="pending">Pending</option>
-                <option value="in-progress">In Progress</option>
-                <option value="done">Done</option>
-              </select>
-            </label>
-            <br />
-            <button type="submit">{taskId ? "Update" : "Submit"}</button>
-            <button type="button" onClick={closeModal}>
-              Cancel
-            </button>
-          </form>
-        </Modal>
+                <h2>{taskId ? "Edit Task" : "Create Task"}</h2>
+                <form onSubmit={handleFormSubmit}>
+                  <label>
+                    Task Name:
+                    <input
+                      type="text"
+                      value={taskName}
+                      onChange={(e) => setTaskName(e.target.value)}
+                      required
+                    />
+                  </label>
+                  <label>
+                    Description:
+                    <textarea
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                      required
+                    />
+                  </label>
+                  <label>
+                    Due Date:
+                    <input
+                      type="date"
+                      value={dueDate}
+                      onChange={(e) => setDueDate(e.target.value)}
+                      required
+                    />
+                  </label>
+                  <label>
+                    Priority:
+                    <select
+                      value={priority}
+                      onChange={(e) => setPriority(e.target.value)}
+                      required
+                    >
+                      <option value="low">Low</option>
+                      <option value="high">High</option>
+                    </select>
+                  </label>
+                  <label>
+                    Status:
+                    <select
+                      value={status}
+                      onChange={(e) => setStatus(e.target.value)}
+                      required
+                    >
+                      <option value="pending">Pending</option>
+                      <option value="in-progress">In Progress</option>
+                      <option value="done">Done</option>
+                    </select>
+                  </label>
+                  <div className="button-group">
+                    <button type="submit">{taskId ? "Update" : "Submit"}</button>
+                    <button type="button" onClick={closeModal}>
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </Modal>
+
       </div>
     </div>
   );
