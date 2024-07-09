@@ -133,7 +133,9 @@ const LandingPage = () => {
 
     if (filter === "high" || filter === "low") {
       filtered = tasks.filter((task) => task.priority === filter);
-    } else if (filter !== "all") {
+    }  else if (filter === "collaborating") {
+      filtered = tasks.filter((task) => task.collaborators.includes(userEmail));
+    }else if (filter !== "all") {
       filtered = tasks.filter((task) => task.status === filter);
     }
 
@@ -294,7 +296,7 @@ const LandingPage = () => {
 
   return (
     <div className="container">
-      <Sidebar setFilter={setFilter} taskCounts={taskCounts} taskPriorityCounts={taskPriorityCounts} />
+      <Sidebar setFilter={setFilter} taskCounts={taskCounts} taskPriorityCounts={taskPriorityCounts} collaborationRequests={collaborationRequests}/>
       <div className="task-list-container">
         <ToastContainer />
         <div className="task-list-header">

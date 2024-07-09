@@ -55,7 +55,7 @@
 /* Mobile styles */
 @media (max-width: 768px) {
   .sidebar {
-    height: 450px;
+    height: 500px;
     position: fixed;
     left: -200px;
     transition: left 0.3s ease;

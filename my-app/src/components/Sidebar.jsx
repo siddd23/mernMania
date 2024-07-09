@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaBars } from 'react-icons/fa';
 import './Sidebar.css';
 
-const Sidebar = ({ setFilter, taskCounts, taskPriorityCounts }) => {
+const Sidebar = ({ setFilter, taskCounts, taskPriorityCounts, collaborationRequests }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleToggleSidebar = () => {
@@ -31,6 +31,9 @@ const Sidebar = ({ setFilter, taskCounts, taskPriorityCounts }) => {
           <li onClick={() => setFilter("high")}>High Priority ({taskPriorityCounts.high})</li>
           <li onClick={() => setFilter("low")}>Low Priority ({taskPriorityCounts.low})</li>
         </ul>
+        <div  className="priorityTask" onClick={() => setFilter("collaborating")}>
+        Collaborating Tasks
+         </div>
       </div>
       <div className={`sidebar-overlay ${isSidebarOpen ? 'open' : ''}`} onClick={handleToggleSidebar}></div>
     </>
