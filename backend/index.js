@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://siddharthjangid.netlify.app/",
   },
 });
 // Connect to MongoDB

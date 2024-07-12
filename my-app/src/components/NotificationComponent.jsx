@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import socketIOClient from "socket.io-client";
 import Navigation from "./Navigation";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://mernmania-4.onrender.com";
 
 const NotificationComponent = () => {
   const [notifications, setNotifications] = useState([]);

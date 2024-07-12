@@ -11,7 +11,7 @@ import { useUser } from "@clerk/clerk-react";
 import { FaBell } from 'react-icons/fa';
 
 Modal.setAppElement("#root");
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://mernmania-4.onrender.com";
 
 const customStyles = {
   overlay: {
@@ -64,7 +64,7 @@ const LandingPage = () => {
 
   const fetchNotifications = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/notifications`);
+      const response = await axios.get(`https://mernmania-4.onrender.com/notifications`);
       setNotification(response.data); // Assuming 'response.data' contains the array of notifications
     } catch (error) {
       console.error("Error fetching notifications:", error);
@@ -99,13 +99,13 @@ const LandingPage = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/tasks");
+      const response = await axios.get("https://mernmania-4.onrender.com/tasks");
       setTasks(response.data);
       setFilteredTasks(response.data); // Initialize filtered tasks with all tasks
       calculateCounts(response.data);
       calculatePriorityCounts(response.data);
       // Fetch collaboration requests
-      const requestsResponse = await axios.get("http://localhost:5000/collaboration-requests");
+      const requestsResponse = await axios.get("https://mernmania-4.onrender.com/collaboration-requests");
       setCollaborationRequests(requestsResponse.data);
     } catch (error) {
       console.error("Error fetching tasks:", error);
@@ -181,14 +181,14 @@ const LandingPage = () => {
     e.preventDefault();
   
     try {
-      const socket = socketIOClient("http://localhost:5000");
+      const socket = socketIOClient("https://mernmania-4.onrender.com");
       const receiverName = userNameContent; // Replace with the actual receiver's username
       const senderName = userNameContent; // Replace with the actual sender's username
       const senderEmail = userEmail; // Include sender's email
   
       if (taskId) {
         // Update task
-        await axios.put(`http://localhost:5000/tasks/${taskId}`, {
+        await axios.put(`https://mernmania-4.onrender.com/tasks/${taskId}`, {
           taskName,
           description,
           dueDate,
@@ -205,7 +205,7 @@ const LandingPage = () => {
         });
       } else {
         // Create new task
-        await axios.post("http://localhost:5000/tasks/create", {
+        await axios.post("https://mernmania-4.onrender.com/tasks/create", {
           taskName,
           description,
           dueDate,
@@ -235,11 +235,11 @@ const LandingPage = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this task?");
     if (confirmDelete) {
       try {
-        const socket = socketIOClient("http://localhost:5000");
+        const socket = socketIOClient("https://mernmania-4.onrender.com");
         const receiverName = userNameContent; // Replace with the actual receiver's username
         const senderName = userNameContent; // Replace with the actual sender's username
         const senderEmail = userEmail; // Include sender's email
-        await axios.delete(`http://localhost:5000/tasks/${taskId}`);
+        await axios.delete(`https://mernmania-4.onrender.com/tasks/${taskId}`);
         socket.emit("sendNotification", {
           senderName,
           senderEmail,
@@ -268,7 +268,7 @@ const LandingPage = () => {
     }
   
     try {
-      await axios.post(`http://localhost:5000/tasks/${taskId}/collaborate`, {
+      await axios.post(`https://mernmania-4.onrender.com/tasks/${taskId}/collaborate`, {
         email: userEmail,
       });
       toast.success("Collaboration request sent!");
@@ -282,7 +282,7 @@ const LandingPage = () => {
   
   const handleCollaborateResponse = async (taskId, email, status) => {
     try {
-      await axios.put(`http://localhost:5000/tasks/${taskId}/collaborate`, {
+      await axios.put(`https://mernmania-4.onrender.com/tasks/${taskId}/collaborate`, {
         email,
         status,
       });
